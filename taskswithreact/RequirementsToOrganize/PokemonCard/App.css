@@ -1,0 +1,9 @@
+.containerPokemon {
+  align-items: center;
+  display: flex;
+  height: 500px;
+  justify-content: space-around;
+  text-align: center;
+  width: auto;
+}
+

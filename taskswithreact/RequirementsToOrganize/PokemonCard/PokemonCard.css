@@ -1,0 +1,8 @@
+.card{
+    display: block;
+    background-color: rgba(137, 43, 226, 0.486);
+}
+
+.card__image{
+    padding: 30px;
+}

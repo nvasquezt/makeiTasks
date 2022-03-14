@@ -1,0 +1,22 @@
+{
+  "name": "faker-exercise",
+  "version": "1.0.0",
+  "description": "examples with js",
+  "main": "fakeNamesGenerator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvasquezt/faker-exercise.git"
+  },
+  "author": "Norbey Vasquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nvasquezt/faker-exercise/issues"
+  },
+  "homepage": "https://github.com/nvasquezt/faker-exercise#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0-beta.0"
+  }
+}
