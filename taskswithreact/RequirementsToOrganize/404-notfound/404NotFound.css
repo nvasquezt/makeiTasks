@@ -1,0 +1,154 @@
+*{padding: 0; margin: 0;}
+.container{
+    box-sizing: border-box;
+    width: auto;
+    height: 100vh;    
+}
+.title{
+    position: absolute;
+    width: 133px;
+    height: 25px;
+    left: 24px;
+    top: 20px;
+
+    font-family: 'Inconsolata', monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+
+    color: #333333;
+}
+.container__image{
+    position: absolute;
+    width: 287px;
+    height: 238px;
+    left: 11.73%;
+    right: 11.78%;
+    top: 11.49%;
+    bottom: 63.44%;
+}
+.container__textTitle{
+    position: absolute;
+    width: 350px;
+    height: 142px;
+    left: 24px;
+    top: 407px;
+
+    font-family: 'Space Mono', monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 71px;
+    letter-spacing: -0.035em;
+
+    color: #333333;
+}
+.container__textcontent{
+    position: absolute;
+    width: 328px;
+    height: 81px;
+    left: 23px;
+    top: 579px;
+
+    font-family: 'Space Mono', monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: -0.035em;
+
+    color: #4F4F4F;
+}
+
+.container_btnBackToHome{
+    position: absolute;
+    width: 216px;
+    height: 68px;
+    left: 24px;
+    top: 726px;
+
+    background: #333333;
+}
+.container_btnBackToHome--text{
+    width: 130px;
+    height: 21px;
+
+    font-family: monospace;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+
+
+.footer_information{
+    position: absolute;
+    width: 350px;
+    height: 17px;
+    left: 46px;
+    top: 908px;
+
+    font-family:'Monserrat', monospace;
+    font-style: normal;
+    font-weight: 500px;
+    font-size: 14px;
+    line-height: 17px;
+    
+    text-align: center;
+
+    color: #BDBDBD;
+}
+
+@media (min-width: 768px){
+    .title{
+        left: 77px;
+        top: 40px;
+        font-size: 20px;
+        line-height: 25px;
+    }
+    .container__image{
+        width: 540px;
+        height: 448px;
+        left: 5.35%;
+        right: 57.21%;
+        top: 20.54%;
+    }
+    .container__textTitle{
+        width: 586px;
+        height: 190px;
+        left: 735px;
+        top: 150px;
+    
+        font-size: 64px;
+        line-height: 95px;
+        letter-spacing: -0.035em;
+    }
+    .container__textcontent{
+        width: 381px;
+        height: 108px;
+        left: 736px;
+        top: 350px;
+    
+        font-size: 24px;
+        line-height: 36px;
+        letter-spacing: -0.035em;
+    }
+    .container_btnBackToHome{
+        left: 740px;
+        top: 483px;
+    }
+    .footer_information{
+        
+        left: 577px;
+        top: 700px;
+    }
+}
