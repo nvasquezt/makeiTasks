@@ -4,7 +4,7 @@ function UserProfile() {
   return (
     <div className="container">
       <div className="container_userPanel">
-        <button>Volver</button>
+        <button className="userProfileButton">Volver</button>
         <div className="container_imageContainer">
           <img
             className="container_imageContainer--userImage"
@@ -12,8 +12,8 @@ function UserProfile() {
             alt="profile"
           />
         </div>
-        <button>Mis datos</button>
-        <button href="#">Historial de negocios</button>
+        <button className="userProfileButton">Mis datos</button>
+        <button className="userProfileButton">Historial de negocios</button>
       </div>
       <div className="contentProfile">
         <table className="contentProfile_userProfileTable">
