@@ -1,4 +1,5 @@
 import './PokemonCard.css'
+
 function PokemonCard (props){
     const {name, order, image, stats, weight}= props.eachPokemon;
     const [hp,attack, defense, special]= stats;

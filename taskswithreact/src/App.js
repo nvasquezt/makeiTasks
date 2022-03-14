@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Pokemondata from './assets/pokemondata.json'
+import PokemonCard from './components/PokemonCard/PokemonCard.jsx'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body>
+      <div className="containerPokemon">      
+      {Pokemondata.map((pokemoncito,idx)=>(
+          <PokemonCard key={idx} eachPokemon={pokemoncito}/>
+        )
+      )}
+      </div>
+    </body>
+    
   );
 }
 
