@@ -1,8 +1,11 @@
+*{margin: 0; padding: 0;}
 .card{
     display: block;
     background-color: rgba(137, 43, 226, 0.486);
 }
 
 .card__image{
-    padding: 30px;
+    width: 200px;
+    height: 230px;
+    padding: 20px;
 }

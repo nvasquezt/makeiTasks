@@ -1,0 +1,30 @@
+*{margin: 0; padding: 0;}
+.container{
+  background-color: aqua;
+  display: flex;
+  width: auto;
+  &_userPanel{
+    background-color:darkblue;
+    width: 20%;
+  }
+  &_imageContainer{
+    height: 200px;
+    width: 200px;
+    &--userImage{
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+.contentProfile{
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 80%;
+  &_userProfileTable{
+    background-color: blueviolet;
+    height: 60vh;
+    width: 70%;
+  }
+}
