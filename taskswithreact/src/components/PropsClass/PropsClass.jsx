@@ -1,7 +1,8 @@
 import './PropsClass.css'
 import Title from './Title'
 import Content from './Content';
-import OnionHater from '../onionHater/OnionHater.jsx'
+import OnionHater from '../OnionHater/OnionHater.jsx'
+import Travels from '../Travels/Travels.jsx'
 
 
 const PropsClass=(props)=>{
@@ -55,6 +56,7 @@ const PropsClass=(props)=>{
                         </button>
                     </form>
                 <OnionHater />
+                <Travels />
             </div>
         </div>
     );
