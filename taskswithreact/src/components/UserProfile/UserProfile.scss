@@ -1,9 +1,9 @@
 *{margin: 0; padding: 0;}
 .container{
-  background-color: aqua;
   display: flex;
   width: auto;
   &_userPanel{
+    padding: 2rem;
     background-color:darkblue;
     width: 20%;
   }
@@ -23,8 +23,17 @@
   justify-content: center;
   width: 80%;
   &_userProfileTable{
-    background-color: blueviolet;
     height: 60vh;
     width: 70%;
   }
+}
+button{
+  background-color: blue;
+  border-radius: 1rem;
+  color: white;
+  display: block;
+  height: auto;
+  margin: 1rem;
+  padding: 1rem;
+  width: auto;
 }
