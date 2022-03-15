@@ -1,19 +1,20 @@
-import "./UserProfile.scss";
+/* eslint-disable react/react-in-jsx-scope */
+import './UserProfile.scss';
 
 function UserProfile() {
   return (
     <div className="container">
       <div className="container_userPanel">
-        <button className="userProfileButton">Volver</button>
+        <button type="button" className="userProfileButton">Volver</button>
         <div className="container_imageContainer">
           <img
             className="container_imageContainer--userImage"
-            src='https://cdn-icons-png.flaticon.com/512/149/149071.png'
+            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             alt="profile"
           />
         </div>
-        <button className="userProfileButton">Mis datos</button>
-        <button className="userProfileButton">Historial de negocios</button>
+        <button type="button" className="userProfileButton">Mis datos</button>
+        <button type="button" className="userProfileButton">Historial de negocios</button>
       </div>
       <div className="contentProfile">
         <table className="contentProfile_userProfileTable">
