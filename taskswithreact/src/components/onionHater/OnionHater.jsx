@@ -1,5 +1,4 @@
 /* eslint-disable no-alert */
-/* eslint-disable react/react-in-jsx-scope */
 function OnionHater() {
   const handleChange = (evt) => {
     if (evt.target.value.toLowerCase().includes('onion')) {

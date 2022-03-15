@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/react-in-jsx-scope */
 import './App.css';
 import UserProfile from './components/UserProfile/UserProfile';
 import Pokemondata from './assets/pokemondata.json';

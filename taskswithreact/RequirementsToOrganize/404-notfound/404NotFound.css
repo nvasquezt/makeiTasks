@@ -2,7 +2,7 @@
 .container{
     box-sizing: border-box;
     width: auto;
-    height: 100vh;    
+    height: 100vh;
 }
 .title{
     position: absolute;
@@ -81,7 +81,7 @@
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;
-    
+
     letter-spacing: -0.035em;
     text-transform: uppercase;
 
@@ -102,7 +102,7 @@
     font-weight: 500px;
     font-size: 14px;
     line-height: 17px;
-    
+
     text-align: center;
 
     color: #BDBDBD;
@@ -127,7 +127,7 @@
         height: 190px;
         left: 735px;
         top: 150px;
-    
+
         font-size: 64px;
         line-height: 95px;
         letter-spacing: -0.035em;
@@ -137,7 +137,7 @@
         height: 108px;
         left: 736px;
         top: 350px;
-    
+
         font-size: 24px;
         line-height: 36px;
         letter-spacing: -0.035em;
@@ -147,7 +147,7 @@
         top: 483px;
     }
     .footer_information{
-        
+
         left: 577px;
         top: 700px;
     }

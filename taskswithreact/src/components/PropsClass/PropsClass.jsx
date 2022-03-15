@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import './PropsClass.css';
