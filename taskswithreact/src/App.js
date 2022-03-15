@@ -1,35 +1,79 @@
-import './App.css';
-import UserProfile from './components/UserProfile/UserProfile';
-import Pokemondata from './assets/pokemondata.json';
-import PokemonCard from './components/PokemonCard/PokemonCard';
-import PropsClass from './components/PropsClass/PropsClass';
-import Clock from './components/Clock/Clock';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import CharactersPage from './components/RickandMorty/CharacterPage';
+import RickandMorty from './components/RickandMorty/RickandMorty';
 import Salary from './components/Salary/Salary';
-import Travels from './components/Travels/Travels';
-import OnionHater from './components/OnionHater/OnionHater';
+import AboutPage from './pages/About';
+import Content from './pages/Content';
+import HomePage from './pages/Home';
 
 function App() {
   return (
-    <body>
-      <div className="containerPokemon">
-        {Pokemondata.map((pokemoncito) => (
-          <PokemonCard key={pokemoncito.id} eachPokemon={pokemoncito} />
-        ))}
-      </div>
-      <div>
-        <UserProfile />
-      </div>
-      <div>
-        <Clock />
-      </div>
-      <OnionHater />
-      <Salary />
-      <Travels />
-      <div>
-        <PropsClass />
-      </div>
-    </body>
+    <BrowserRouter>
+      <nav className="appNavigation">
+        <NavLink
+          to="/"
+          style={({ isActive }) => ({
+            margin: '1rem',
+            color: isActive ? 'Green' : 'orange',
+          })}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/about"
+          style={({ isActive }) => ({
+            margin: '1rem',
+            color: isActive ? 'Green' : 'orange',
+          })}
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="/content"
+          style={({ isActive }) => ({
+            margin: '1rem',
+            color: isActive ? 'Green' : 'orange',
+          })}
+        >
+          Content
+        </NavLink>
+        <NavLink
+          to="/salary"
+          style={({ isActive }) => ({
+            margin: '1rem',
+            color: isActive ? 'Green' : 'orange',
+          })}
+        >
+          Salary
+        </NavLink>
+        <NavLink
+          to="/rickandmorty"
+          style={({ isActive }) => ({
+            margin: '1rem',
+            color: isActive ? 'Green' : 'orange',
+          })}
+        >
+          Rick and Morty
+        </NavLink>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/content" element={<Content />} />
+        <Route path="/salary" element={<Salary />} />
+        <Route path="/rickandmorty" element={<RickandMorty />} />
+        <Route path="/characterpage/:id" element={<CharactersPage />} />
 
+        <Route
+          path="*"
+          element={(
+            <main style={{ padding: '1rem' }}>
+              <p>Nop, nada que hacer... 404</p>
+            </main>
+          )}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
