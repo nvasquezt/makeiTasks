@@ -5,7 +5,7 @@ function Clock() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   console.log('mounting clockPage');
 
-  const interval = setInterval(() => {
+  let interval = setInterval(() => {
     setTime(new Date().toLocaleTimeString());
     console.log('estoy pintando intervalos....');
     setCount(count + 1);
@@ -14,6 +14,7 @@ function Clock() {
   useEffect(() => () => {
     console.log('Antes de desmontar la page');
     clearInterval(interval);
+    interval = null;
   }, []);
   return (
     <div>

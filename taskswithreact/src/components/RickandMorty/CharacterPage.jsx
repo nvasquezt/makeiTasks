@@ -1,11 +1,18 @@
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import dataCharacters from '../../assets/characters.json';
+import { getSingleCharacter } from '../../services/characters';
 
 function CharactersPage() {
   const { id } = useParams();
-  const info = dataCharacters.find((character) => character.id === Number(id));
-  const { name, status, species, gender, origin, location, image, created } = info;
-
+  const [character, setCharacter] = useState([]);
+  const pageCharacter = async () => {
+    const data = await getSingleCharacter(Number(id));
+    setCharacter(data);
+  };
+  useEffect(() => {
+    pageCharacter();
+  }, []);
+  const { name, image, status, species, gender, origin, location, created } = character;
   return (
     <div>
       <h1>

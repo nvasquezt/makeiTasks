@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import CharactersPage from './components/RickandMorty/CharacterPage';
+import CharacterPage from './components/RickandMorty/CharacterPage';
 import RickandMorty from './components/RickandMorty/RickandMorty';
 import Salary from './components/Salary/Salary';
 import AboutPage from './pages/About';
@@ -62,7 +62,7 @@ function App() {
         <Route path="/content" element={<Content />} />
         <Route path="/salary" element={<Salary />} />
         <Route path="/rickandmorty" element={<RickandMorty />} />
-        <Route path="/characterpage/:id" element={<CharactersPage />} />
+        <Route path="/characterpage/:id" element={<CharacterPage />} />
 
         <Route
           path="*"
