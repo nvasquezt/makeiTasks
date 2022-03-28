@@ -6,14 +6,21 @@ const {
     patchtask
 } = require('./task.service');
 
-function handlerAllTasks(req, res) {
-    const tasks = getAllTasks();
+async function handlerAllTasks(req, res) {
+    const tasks = await getAllTasks();
     res.json(tasks);
 }
 
-function handlerTaskById(req, res) {
-    const id = Number(req.params.id);
-    const task = getTaskById(id);
+async function handlerTaskById(req, res) {
+    const { id } = req.params;
+    const task = await getTaskById(id);
+
+    if (!task) {
+        res.status(404).json({
+            message: `Task with id ${id} not found`
+        });
+    }
+
     res.json(task);
 }
 
@@ -24,7 +31,7 @@ function handlerCreateTask (req, res) {
 }
 
 function handlerDeleteTask (req,res){
-    const id = Number(req.params.id);
+    const { id } = req.params;
     const task = deleteTask(id);
     if (!task) {
         res.status(404).json({
@@ -36,7 +43,7 @@ function handlerDeleteTask (req,res){
 }
 
 function handlerUpdateTask(req, res){
-    const id = Number(req.params.id);
+    const { id } = req.params;
     const { body } = req;
     const task = patchtask(id, body);
     if (!task) {
