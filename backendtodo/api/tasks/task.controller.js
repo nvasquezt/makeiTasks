@@ -18,7 +18,8 @@ function handlerTaskById(req, res) {
 }
 
 function handlerCreateTask (req, res) {
-    const task = createTask(req.body);
+    const { body } = req;
+    const task = createTask(body);
     res.json(task);
 }
 
