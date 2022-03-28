@@ -13,27 +13,18 @@ async function getTaskById (id) {
 }
 
 function createTask (task) {
-    // tasks.push(task);
-    // return task;
+    const newTask = new TaskModel(task);
+    return newTask.save();
 }
 
 function deleteTask (id) {
-    // const task = TaskModel.findById(id);
-    // if (!task) {
-    //     return null;
-    // }
-    // tasks.splice(tasks.indexOf(task), 1);
-    // return task;
+    return TaskModel.findByIdAndDelete(id);
 }
 
 function patchtask (id, task) {
-    // const taskToUpdate = task.find(task => task.id === id);
-    // if (!taskToUpdate) {
-    //     return null;
-    // }
-    // Object.assign(taskToUpdate, task);
-    // return taskToUpdate;
+    return TaskModel.findByIdAndUpdate(id, task);
 }
+
 
 module.exports = {  
     getAllTasks,

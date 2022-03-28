@@ -24,31 +24,31 @@ async function handlerTaskById(req, res) {
     res.json(task);
 }
 
-function handlerCreateTask (req, res) {
+async function handlerCreateTask (req, res) {
     const { body } = req;
-    const task = createTask(body);
+    const task = await createTask(body);
     res.json(task);
 }
 
-function handlerDeleteTask (req,res){
+async function handlerDeleteTask (req,res){
     const { id } = req.params;
-    const task = deleteTask(id);
+    const task = await deleteTask(id);
     if (!task) {
         res.status(404).json({
             message: `Task with id ${id} not found`
         });
     } else {
-        res.json(task);
+        res.json({action: 'deleted'});
     }
 }
 
-function handlerUpdateTask(req, res){
+async function handlerUpdateTask(req, res){
     const { id } = req.params;
     const { body } = req;
-    const task = patchtask(id, body);
+    const task = await patchtask(id, body);
     if (!task) {
-        return res.status(404).json({
-            message: 'Task not found'
+        res.status(404).json({
+            message: `Task with id ${id} not found`
         });
     } else {
         res.json(task);
