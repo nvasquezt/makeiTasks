@@ -4,12 +4,14 @@ const {
     handlerUserById,
     handlerCreateUser,
     handlerDeleteUser,
-    handlerUpdateUser
+    handlerUpdateUser,
+    handlerLoginUser,
 } = require('./user.controller');
 
 const router = Router();
 
 router.post('/', handlerCreateUser);
+router.post('/login', handlerLoginUser);
 router.get('/', handlerAllUsers);
 router.get('/:id', handlerUserById);
 router.patch('/:id', handlerUpdateUser);

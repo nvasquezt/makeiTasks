@@ -1,3 +1,5 @@
+const jsonwebtoken = require("jsonwebtoken");
+const userModel = require("./user.model");
 const { 
     getAllUsers,
     getUserById,
@@ -23,6 +25,20 @@ const handlerUserById = async (req, res) => {
     } else {
         res.status(200).send(user.profile);
     }
+};
+
+const handlerLoginUser = async (req, res) => {
+    const { username, password } = req.body;
+    const user = await userModel.findOne({ username });
+    if (!user) {
+        return res.status(401).send(`User with username ${ username } not found`);
+    }
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+        return res.status(401).send("Invalid password");
+    }
+    const token = jsonwebtoken.sign(user.profile, 'secret', { expiresIn: '1h' });
+    res.status(200).send(token);
 };
 
 const handlerCreateUser = async (req, res) => {
@@ -59,5 +75,6 @@ module.exports = {
     handlerUserById,
     handlerCreateUser,
     handlerDeleteUser,
-    handlerUpdateUser
+    handlerUpdateUser,
+    handlerLoginUser,
 };
