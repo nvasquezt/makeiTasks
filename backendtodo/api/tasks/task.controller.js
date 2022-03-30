@@ -22,7 +22,7 @@ async function handlerTaskById(req, res) {
     }
 
     res.json(task);
-}
+}   
 
 async function handlerCreateTask (req, res) {
     const { body } = req;

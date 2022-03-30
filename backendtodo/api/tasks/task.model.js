@@ -1,11 +1,28 @@
 const mongooose = require('mongoose');
 
 const TaskSchema = new mongooose.Schema({
-    title: String,
-    description: String,
-    completed: Boolean
+    title: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    isCompleted: {
+        type: Boolean,
+        default: false,
+    },
+    userId: {
+        type: mongooose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+}, {
+    timestamps: true,
+    versionKey: false,
 });
 
-const Task = mongooose.model('Task', TaskSchema);
-
-module.exports = Task;
+module.exports = mongooose.model('Task', TaskSchema);

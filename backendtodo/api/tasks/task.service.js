@@ -5,10 +5,10 @@ async function getAllTasks () {
 }
 
 async function getTaskById (id) {
-    const task = await TaskModel.findById(id);
-    if (!task) {
-        throw new Error(`Task with id ${id} not found`);
-    }
+    const task = await TaskModel.findById(id).populate({
+        path: 'userId',
+        select: 'name last username email'
+    });
     return task;
 }
 

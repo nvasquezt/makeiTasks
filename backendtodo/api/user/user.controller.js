@@ -8,49 +8,51 @@ const {
 
 const handlerAllUsers = async (req, res) => {
     const users = await getAllUsers();
-    res.json(users);
-}
+    if (!users) {
+        res.status(404).send("No users found");
+    } else {
+        res.status(200).send(users);
+    }
+};
 
 const handlerUserById = async (req, res) => {
     const { id } = req.params;
     const user = await getUserById(id);
-
     if (!user) {
-        res.status(404).json({
-            message: `User with id ${id} not found`
-        });
+        res.status(404).send(`User with id ${ id } not found`);
+    } else {
+        res.status(200).send(user.profile);
     }
-
-    res.json(user);
-}
+};
 
 const handlerCreateUser = async (req, res) => {
-    const { body } = req;
-    const user = await createUser(body);
-    res.json(user);
-}
-
-const handlerDeleteUser = async (req,res) => {
-    const { id } = req.params;
-    const user = deleteUser(id);
+    const user = await createUser(req.body);
     if (!user) {
-        return null;
+        res.status(404).send("User not created");
     } else {
-        res.json('User deleted');
+        res.status(201).send(user);
     }
-}
+};
+
+const handlerDeleteUser = async (req, res) => {
+    const id = req.params.id;
+    const user = await deleteUser(id);
+    if (!user) {
+        res.status(404).send(`User with id ${ id } not found`);
+    } else {
+        res.status(200).send(user);
+    }
+};
 
 const handlerUpdateUser = async (req, res) => {
-    const { id } = req.params;
-    const { body } = req;
-    const user = patchUser(id, body);
+    const { id, body } = req.params;
+    const user = await patchUser(id, body);
     if (!user) {
-        return null;
+        res.status(404).send(`User with id ${ id } not found`);
     } else {
-        res.json('user updated');
+        res.status(200).send(user);
     }
-}
-
+};
 
 module.exports = {
     handlerAllUsers,
@@ -58,4 +60,4 @@ module.exports = {
     handlerCreateUser,
     handlerDeleteUser,
     handlerUpdateUser
-}
+};
