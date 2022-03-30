@@ -1,13 +1,18 @@
 const { findOneUser } = require('../api/user/user.service');
+const compose = require('composable-middleware');
 
 const jsonwebtoken = require("jsonwebtoken");
 
 /**
  *
- * @param {*} token
+ * @param {req} req - The request object.
+ * @param {res} res - The response object.
+ * @returns {object} - The response object.
+ * @description - This function is used to authenticate the user.
  * @returns
  */
-async function isAuth(req,res,next){
+function isAuth(){
+  return compose().use(async (req, res, next) => {
   const authHeader = req.headers.authorization;
   if(!authHeader){
     return res.status(401).send("No token provided");
@@ -23,6 +28,19 @@ async function isAuth(req,res,next){
   }
   req.user = user;
   next();
+  });
+}
+
+function hasRole(allowedRoles= []){
+  return compose().use(isAuth())
+  .use(async (req, res, next) => {
+    const { role } = req.user;
+    if(!allowedRoles.includes(role)){
+      return res.status(401).send("You are not authorized");
+    }
+    next();
+    return null;
+  });
 }
 
 /**
@@ -53,4 +71,5 @@ module.exports = {
   signToken,
   verifyToken,
   isAuth,
+  hasRole,
 };
