@@ -5,6 +5,11 @@ const getAllUsers = async () => {
     return users;
 }
 
+const getUserByUsername = async (username) => {
+    const user = await UserModel.findOne({ username });
+    return user;
+}
+
 const getUserById = async (id) => {
     const user = await UserModel.findById(id);
     return user;
@@ -21,14 +26,21 @@ const deleteUser = async (id) => {
 }
 
 const patchUser = async (id, user) => {
-    const updatedUser = await UserModel.findByIdAndUpdate(id, user);
+    const updatedUser = await UserModel.findByIdAndUpdate(id, user , { new: true });
     return updatedUser;
+}
+
+const findOneUser = async (query) => {
+    const user = await UserModel.findOne(query);
+    return user;
 }
 
 module.exports = {
     getAllUsers,
+    getUserByUsername,
     getUserById,
     createUser,
     deleteUser,
-    patchUser
+    patchUser,
+    findOneUser
 }

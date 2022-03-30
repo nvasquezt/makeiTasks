@@ -22,12 +22,20 @@ async function handlerTaskById(req, res) {
     }
 
     res.json(task);
-}   
+}
 
 async function handlerCreateTask (req, res) {
-    const { body } = req;
-    const task = await createTask(body);
-    res.json(task);
+  const newTask = {
+    ...req.body,
+    userId: req.user._id,
+  };
+  try {
+    const task = await createTask(newTask);
+    res.status(201).json(task);
+  }
+  catch (err) {
+    res.status(400).json(err);
+  }
 }
 
 async function handlerDeleteTask (req,res){
